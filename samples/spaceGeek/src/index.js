@@ -14,32 +14,43 @@
  *
  * Examples:
  * One-shot model:
- *  User: "Alexa, ask Space Geek for a space fact"
- *  Alexa: "Here's your space fact: ..."
+ *  User: "Alexa, ask Dota Pros for a Dota tip"
+ *  Alexa: "Here's your Dota tip: ..."
  */
 
 /**
  * App ID for the skill
  */
-var APP_ID = undefined; //OPTIONAL: replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
+var APP_ID = "amzn1.ask.skill.41ea80f5-ab95-4f06-adb1-a9c433a1569d"; //OPTIONAL: replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
 
 /**
- * Array containing space facts.
+ * Array containing Dota tips.
  */
 var FACTS = [
-    "A year on Mercury is just 88 days long.",
-    "Despite being farther from the Sun, Venus experiences higher temperatures than Mercury.",
-    "Venus rotates counter-clockwise, possibly because of a collision in the past with an asteroid.",
-    "On Mars, the Sun appears about half the size as it does on Earth.",
-    "Earth is the only planet not named after a god.",
-    "Jupiter has the shortest day of all the planets.",
-    "The Milky Way galaxy will collide with the Andromeda Galaxy in about 5 billion years.",
-    "The Sun contains 99.86% of the mass in the Solar System.",
-    "The Sun is an almost perfect sphere.",
-    "A total solar eclipse can happen once every 1 to 2 years. This makes them a rare event.",
-    "Saturn radiates two and a half times more energy into space than it receives from the sun.",
-    "The temperature inside the Sun can reach 15 million degrees Celsius.",
-    "The Moon is moving approximately 3.8 cm away from our planet every year."
+    "Reliable Gold is earned from killing Heroes, Roshan, and Couriers, from the destruction of enemy Towers, or from using Hand of Midas. All other earnings are Unreliable Gold, which can be lost upon death.",
+    "You can pull the creatures in the neutral creep camp that is nearest to your team's Safe Lane into your lane creeps.",
+    "Several items can be broken down into the component parts by right-clicking them in your inventory and choosing Disassemble. Re-use those components to create new items.",
+    "Use Control Groups to issue orders to different sets of units under your control. To set a Control Group, select a unit or units, hold Control, and press a number. To select that Control Group, press that number.",
+    "If you are about to die, use your Purchase Quickbuy keybinding to spend your gold before it disappears!",
+    "Swapping the primary attribute on Power Treads to Intelligence can give you a little extra mana.",
+    "If you have an Armlet of Mordiggian, you can turn on Unholy Strength to temporarily raise your health by 475. Disabling Unholy Strength will remove the added health, down to a minimum of 1 health.",
+    "Activating Manta Style removes several buffs and debuffs, and will cause projectiles that are already in flight to miss.",
+    "After using Buyback, 25% of a hero's remaining respawn time at the time of Buyback is added to their next death.",
+    "Cheese can be sold for 500 gold.",
+    "If you are within range of several auras with the same effect, only the most powerful aura will be active.",
+    "If you know you are about to die, consider entering a neutral creep camp, or going to Roshan, and letting them kill you instead. This will deny the enemy team the gold and experience earned from your death.",
+    "Melee Barracks regenerate 5 hit points per second. Ranged Barracks do not regenerate.",
+    "One point of Agility increases hero attack speed by 1, as well as 0.14 armor.",
+    "One point of Intelligence adds 13 maximum mana, as well as 0.04 mana regeneration per second.",
+    "One point of Strength adds 19 maximum health, as well as 0.03 health regeneration per second.",
+    "Shadow Blade can still be activated while channeling a Town Portal Scroll.",
+    "Switching Power Treads to Agility while healing allows your health and mana to restore slightly faster. Just don't forget to switch them back!",
+    "The Aegis of the Immortal can be denied.",
+    "Though illusions are not affected by auras, they will still grant shared auras from their original hero to nearby units.",
+    "You do not need to destroy the enemy team's barracks to damage the towers near their Ancient. Destroying barracks is optional.",
+    "Warriors summoned by using a Level 3 Necronomicon have True Sight.",
+    "The effects of Dust of Appearance can be purged.",
+    "Runes can be attacked and denied."
 ];
 
 /**
@@ -48,7 +59,7 @@ var FACTS = [
 var AlexaSkill = require('./AlexaSkill');
 
 /**
- * SpaceGeek is a child of AlexaSkill.
+ * DotaPros is a child of AlexaSkill.
  * To read more about inheritance in JavaScript, see the link below.
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript#Inheritance
@@ -85,7 +96,7 @@ Fact.prototype.intentHandlers = {
     },
 
     "AMAZON.HelpIntent": function (intent, session, response) {
-        response.ask("You can say tell me a space fact, or, you can say exit... What can I help you with?", "What can I help you with?");
+        response.ask("You can say tell me a Dota tip, or, you can say exit... What can I help you with?", "What can I help you with?");
     },
 
     "AMAZON.StopIntent": function (intent, session, response) {
@@ -103,19 +114,19 @@ Fact.prototype.intentHandlers = {
  * Gets a random new fact from the list and returns to the user.
  */
 function handleNewFactRequest(response) {
-    // Get a random space fact from the space facts list
+    // Get a random Dota tip from the Dota tips list
     var factIndex = Math.floor(Math.random() * FACTS.length);
     var randomFact = FACTS[factIndex];
 
     // Create speech output
-    var speechOutput = "Here's your fact: " + randomFact;
-    var cardTitle = "Your Fact";
+    var speechOutput = "Here's your tip: " + randomFact;
+    var cardTitle = "Your Tip";
     response.tellWithCard(speechOutput, cardTitle, speechOutput);
 }
 
 // Create the handler that responds to the Alexa Request.
 exports.handler = function (event, context) {
-    // Create an instance of the SpaceGeek skill.
+    // Create an instance of the DotaPros skill.
     var fact = new Fact();
     fact.execute(event, context);
 };

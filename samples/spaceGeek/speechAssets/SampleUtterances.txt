@@ -1,14 +1,20 @@
 GetNewFactIntent a fact
-GetNewFactIntent a space fact
+GetNewFactIntent a Dota fact
 GetNewFactIntent tell me a fact
-GetNewFactIntent tell me a space fact
+GetNewFactIntent tell me a Dota fact
 GetNewFactIntent give me a fact
-GetNewFactIntent give me a space fact
+GetNewFactIntent give me a Dota fact
+GetNewFactIntent a tip
+GetNewFactIntent a Dota tip
+GetNewFactIntent tell me a tip
+GetNewFactIntent tell me a Dota tip
+GetNewFactIntent give me a tip
+GetNewFactIntent give me a Dota tip
 GetNewFactIntent tell me trivia
-GetNewFactIntent tell me a space trivia
+GetNewFactIntent tell me a Dota trivia
 GetNewFactIntent give me trivia
-GetNewFactIntent give me a space trivia
+GetNewFactIntent give me a Dota trivia
 GetNewFactIntent give me some information
-GetNewFactIntent give me some space information
+GetNewFactIntent give me some Dota information
 GetNewFactIntent tell me something
 GetNewFactIntent give me something
